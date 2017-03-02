@@ -1,0 +1,184 @@
+name:                GeoHint
+version:             0.1.0.0
+synopsis:            Initial project template from stack
+description:         Please see README.md
+homepage:            http://github.com/snthibaud/GeoHint#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Stéphane Thibaud
+maintainer:          snthibaud@gmail.com
+copyright:           2016 Stéphane Thibaud
+category:            Education
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Experiment
+  build-depends:       base >= 4.7 && < 5
+                     , mtl == 2.2.*
+                     , QuickCheck >= 2.4.1 && < 2.8
+                     , Diff
+                     , containers
+                     , random
+                     , uniplate
+                     , time
+                     , filepath
+                     , directory
+                     , parsec
+                     , wl-pprint
+                     , array
+                     , exceptions
+                     , multipart
+                     , bytestring
+                     , old-time
+                     , old-locale
+                     , xhtml
+                     , text
+                     , diagrams-svg >= 1.4
+                     , diagrams-canvas
+                     , diagrams-lib
+                     , network
+                     , network-uri
+                     , xml
+                     , split
+  other-modules:       Ideas.Common.Classes
+                     , Ideas.Common.Context
+                     , Ideas.Common.Environment
+                     , Ideas.Common.Id
+                     , Ideas.Common.Exercise
+                     , Ideas.Common.Derivation
+                     , Ideas.Common.Context
+                     , Ideas.Common.CyclicTree
+                     , Ideas.Common.Library
+                     , Ideas.Common.Predicate
+                     , Ideas.Common.Rewriting
+                     , Ideas.Common.Rewriting.AC
+                     , Ideas.Common.Rewriting.RewriteRule
+                     , Ideas.Common.Rewriting.Substitution
+                     , Ideas.Common.Rewriting.Term
+                     , Ideas.Common.Rewriting.Unification
+                     , Ideas.Common.Rule.Abstract
+                     , Ideas.Common.Rule.EnvironmentMonad
+                     , Ideas.Common.Rule.Recognizer
+                     , Ideas.Common.Rule.Transformation
+                     , Ideas.Common.Strategy.Abstract
+                     , Ideas.Common.Strategy.Combinators
+                     , Ideas.Common.Strategy.Process
+                     , Ideas.Common.Traversal.Iterator
+                     , Ideas.Common.Traversal.Navigator
+                     , Ideas.Common.Traversal.Utils
+                     , Ideas.Common.Utils
+                     , Ideas.Common.Utils.QuickCheck
+                     , Ideas.Common.Utils.StringRef
+                     , Ideas.Common.Utils.TestSuite
+                     , Ideas.Common.Utils.Uniplate
+                     , Ideas.Common.View
+                     , Ideas.Common.Algebra.Boolean
+                     , Ideas.Common.Strategy.Symbol
+                     , Ideas.Common.Strategy.Choice
+                     , Ideas.Common.Strategy.Prefix
+                     , Ideas.Common.Strategy.StrategyTree
+                     , Ideas.Common.Strategy.Sequence
+                     , Ideas.Common.Algebra.Group
+                     , Ideas.Common.DerivationTree
+                     , Ideas.Common.Rule
+                     , Ideas.Common.Rule.Parameter
+                     , Ideas.Common.Strategy
+                     , Ideas.Common.Strategy.Configuration
+                     , Ideas.Common.Strategy.Derived
+                     , Ideas.Common.Strategy.Legacy
+                     , Ideas.Common.Strategy.Traversal
+                     , Ideas.Common.Strategy.Location
+                     , Ideas.Service.DomainReasoner
+                     , Ideas.Service.ServiceList
+                     , Ideas.Main.Default
+                     , Ideas.Service.DomainReasoner
+                     , Ideas.Main.Options
+                     , Ideas.Service.ServiceList
+                     , Ideas.Service.FeedbackScript.Parser
+                     , Ideas.Service.Types
+                     , Ideas.Service.State
+                     , Ideas.Service.Types
+                     , Ideas.Service.Diagnose
+                     , Ideas.Common.ExerciseTests
+                     , Ideas.Service.State
+                     , Ideas.Service.BasicServices
+                     , Ideas.Service.FeedbackText
+                     , Ideas.Service.ProblemDecomposition
+                     , Ideas.Service.Submit
+                     , Ideas.Main.Logging
+                     , Ideas.Service.Request
+                     , Network.CGI
+                     , Network.CGI.Protocol
+                     , Network.CGI.Accept
+                     , Ideas.Encoding.ModeJSON
+                     , Ideas.Encoding.ModeXML
+                     , Network.CGI.Monad
+                     , Ideas.Main.Documentation
+                     , Ideas.Main.BlackBoxTests
+                     , Ideas.Service.FeedbackScript.Analysis
+                     , Ideas.Main.Revision
+                     , Strategies
+                     , Ideas.Service.FeedbackScript.Syntax
+                     , Ideas.Common.Rewriting.Difference
+                     , Ideas.Service.FeedbackScript.Run
+                     , Network.CGI.Cookie
+                     , Ideas.Text.JSON
+                     , Ideas.Text.XML.Interface
+                     , Ideas.Text.XML
+                     , Ideas.Encoding.EncoderHTML
+                     , Ideas.Encoding.LinkManager
+                     , Ideas.Service.FeedbackScript.Run
+                     , Ideas.Text.Parsing
+                     , Ideas.Text.XML.Parser
+                     , Ideas.Text.XML.Unicode
+                     , Ideas.Text.HTML
+                     , Ideas.Encoding.EncoderJSON
+                     , Ideas.Encoding.EncoderXML
+                     , Ideas.Encoding.DecoderXML
+                     , Ideas.Encoding.Evaluator
+                     , Ideas.Encoding.Encoder
+                     , Ideas.Encoding.EncoderXML
+                     , Ideas.Text.XML.Document
+                     , Ideas.Encoding.DecoderJSON
+                     , Rules
+                     , Ideas.Text.UTF8
+                     , Ideas.Encoding.OpenMathSupport
+                     , Ideas.Text.OpenMath.Object
+                     , DataTypes
+                     , Ideas.Text.OpenMath.Dictionary.List1
+                     , Ideas.Text.OpenMath.Dictionary.Fns1
+                     , Ideas.Encoding.RulePresenter
+                     , Ideas.Encoding.StrategyInfo
+                     , GeoLibrary
+                     , Ideas.Text.OpenMath.Dictionary.Arith1
+                     , Ideas.Encoding.RulesInfo
+                     , Ideas.Text.OpenMath.FMP
+                     , Ideas.Text.OpenMath.Dictionary.Quant1
+                     , Ideas.Text.OpenMath.Dictionary.Relation1
+                     , Ideas.Text.OpenMath.Symbol
+                     , Network.CGI.Compat
+                     , Programs
+  default-language:    Haskell2010
+
+executable GeoHint-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base >= 4.7 && < 5
+                     , GeoHint
+  default-language:    Haskell2010
+
+test-suite GeoHint-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       GeoHint
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/snthibaud/GeoHint
